@@ -24,5 +24,5 @@ endif()
 
 set_property(TARGET FIR_SIMD PROPERTY CXX_STANDARD 20)
 
-configure_file(include/data/saw.wav ${CMAKE_CURRENT_BINARY_DIR}/saw.wav COPYONLY)
-configure_file(include/data/classroomImpulseResponse.wav ${CMAKE_CURRENT_BINARY_DIR}/classroomImpulseResponse.wav COPYONLY)
+configure_file(include/data/wrong-place-sound.wav ${CMAKE_CURRENT_BINARY_DIR}/wrong-place-sound.wav COPYONLY)
+# configure_file(include/data/classroomImpulseResponse.wav ${CMAKE_CURRENT_BINARY_DIR}/classroomImpulseResponse.wav COPYONLY)
