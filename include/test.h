@@ -1,8 +1,8 @@
 #pragma once
 #include <cassert>
 #include <functional>
-#include <vector>
 #include <iostream>
+#include <vector>
 #include "FIRFilter.h"
 // #include "AudioFile/AudioFile.h"
 #include "data/BigRandomVectors.h"
@@ -22,7 +22,7 @@ void assertEqualVectors(const std::vector<T>& a,
 template <size_t alignment>
 void testFirFilter(
     std::function<std::vector<float>(fir::FilterInput<float, alignment>&)>
-                       filteringFunction) {
+        filteringFunction) {
   std::vector<float> signal{
       1.f,
       2.f,
@@ -66,8 +66,7 @@ void testFirFilterTwoVectors(
     std::function<std::vector<float>(fir::FilterInput<float, alignment>&)>
         filteringFunction,
     float relativeError = 1e-6f) {
-  fir::FilterInput<float> input(
-      signal, impulseResponse);
+  fir::FilterInput<float> input(signal, impulseResponse);
   const auto expected =
       fir::applyFirFilterAVX_innerLoopVectorization(input);
   fir::FilterInput<float, alignment> inputAligned(signal, impulseResponse);
@@ -95,10 +94,9 @@ void testFirFilterImpulseResponses(
   AudioFile<float> impulseResponse;
   impulseResponse.load("classroomImpulseResponse.wav");
 
-  fir::FilterInput<float> input(
-      signal.samples[0], impulseResponse.samples[0]);
-  fir::FilterInput<float, alignment>
-      inputAligned(
+  fir::FilterInput<float> input(signal.samples[0],
+                                impulseResponse.samples[0]);
+  fir::FilterInput<float, alignment> inputAligned(
       signal.samples[0], impulseResponse.samples[0]);
 
   const auto expected =
@@ -118,6 +116,3 @@ void testFirFilterImpulseResponses(
   std::cout << "Maximum absolute error: " << maximumAbsoluteError
             << std::endl;
 }
-
-
-
