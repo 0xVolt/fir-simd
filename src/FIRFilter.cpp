@@ -14,7 +14,7 @@
 #include "FIRFilter.h"
 
 namespace {
-bool is_aligned(const void* p, std::size_t n) {
+void is_aligned(const void* p, std::size_t n) {
   std::cout << reinterpret_cast<std::uintptr_t>(p) % n << std::endl;
 }
 }  // namespace
